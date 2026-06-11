@@ -1,0 +1,50 @@
+name: Build and Push Docker Image to GHCR
+
+on:
+  push:
+    branches:
+      - main  # main branch ထဲ ကုဒ်တွန်းတင်တိုင်း Auto အလုပ်လုပ်စေရန်
+    tags:
+      - 'v*'   # v1.0.2 စသဖြင့် tag ပေးပြီး တွန်းရင်လည်း အလုပ်လုပ်စေရန်
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }} # zawmoewin120298-collab/edge-vless အလိုအလျောက်ဖြစ်မည်
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # GHCR ပေါ် Image ရေးခွင့်ပေးရန်
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }} # GitHub ကပေးသော Token အလိုအလျောက်သုံးမည်
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=raw,value=latest
+            type=raw,value=v1.0.2
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile # ဆရာကြီးရဲ့ Dockerfile အား ဖတ်ခိုင်းခြင်း
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
