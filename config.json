@@ -18,15 +18,18 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/www.speedtest.net"
+          "path": "/www.speedtest.net",
+          "headers": {
+            "Host": "www.speedtest.net"
+          }
         }
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom"
+      "protocol": "freedom",
+      "settings": {}
     }
   ]
 }
-
