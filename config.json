@@ -59,7 +59,7 @@
       "streamSettings": {
         "network": "httpupgrade",
         "httpupgradeSettings": {
-          "path": "/www.speedtest.net",
+          "path": "/httpupgrade-path",
           "host": "www.speedtest.net"
         }
       }
@@ -79,8 +79,7 @@
       "streamSettings": {
         "network": "xhttp",
         "xhttpSettings": {
-          "mode": "packet-stream",
-          "path": "/www.speedtest.net",
+          "path": "/xhttp-path",
           "host": "www.speedtest.net"
         }
       }
@@ -100,7 +99,7 @@
       "streamSettings": {
         "network": "h2",
         "httpSettings": {
-          "path": "/www.speedtest.net",
+          "path": "/h2-path",
           "host": [
             "www.speedtest.net"
           ]
