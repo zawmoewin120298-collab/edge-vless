@@ -4,7 +4,6 @@
   },
   "inbounds": [
     {
-      "listen": "127.0.0.1",
       "port": 8080,
       "protocol": "vless",
       "settings": {
@@ -19,30 +18,7 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/www.speedtest.net",
-          "headers": {
-            "Host": "www.speedtest.net"
-          }
-        }
-      }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 8081,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
-            "level": 0
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "grpc",
-        "grpcSettings": {
-          "serviceName": "www.speedtest.net"
+          "path": "/www.speedtest.net"
         }
       }
     }
@@ -54,4 +30,3 @@
     }
   ]
 }
-
