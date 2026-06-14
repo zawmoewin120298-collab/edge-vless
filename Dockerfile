@@ -1,7 +1,6 @@
 FROM debian:stable-slim
 
 # 1. Core utilities များနှင့် Nginx ကိုပါ တစ်ခါတည်း Install လုပ်ပါ
-# (Debian apt-get တွင် --no-cache မရှိပါ၊ ၎င်းအစား clean နှင့် rm ကို သုံးရပါသည်)
 RUN apt-get update && apt-get install -y \
     wget \
     unzip \
@@ -11,11 +10,12 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. V2Ray Core ကို Download ဆွဲပြီး အတည်ပြုထည့်သွင်းပါ
-RUN wget https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip && \
-    unzip v2ray-linux-64.zip -d /usr/bin/ && \
+# 2. ခေတ်မီ Protocol စုံလင်သော Xray Core ကို ဒေါင်းလုဒ်လုပ်ပြီး အတည်ပြုထည့်သွင်းပါ
+RUN wget https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
+    unzip Xray-linux-64.zip -d /usr/bin/ && \
+    mv /usr/bin/xray /usr/bin/v2ray && \
     chmod +x /usr/bin/v2ray && \
-    rm v2ray-linux-64.zip
+    rm Xray-linux-64.zip
 
 # 3. Cloudflared (Cloudflare Tunnel) ကို ဒေါင်းလုဒ်လုပ်ပြီး သွင်းပါ
 RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared && \
@@ -34,4 +34,3 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 80
 
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
-
