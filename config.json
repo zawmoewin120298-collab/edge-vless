@@ -43,6 +43,125 @@
           "serviceName": "www.speedtest.net"
         }
       }
+    },
+    {
+      "port": 8082,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "httpupgrade",
+        "httpupgradeSettings": {
+          "path": "/www.speedtest.net",
+          "host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "port": 8083,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+          "mode": "packet-stream",
+          "path": "/www.speedtest.net",
+          "host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "port": 8084,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "h2",
+        "httpSettings": {
+          "path": "/www.speedtest.net",
+          "host": [
+            "www.speedtest.net"
+          ]
+        }
+      }
+    },
+    {
+      "port": 8085,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "kcp",
+        "kcpSettings": {
+          "uplinkCapacity": 5,
+          "downlinkCapacity": 20,
+          "congestion": true,
+          "header": {
+            "type": "wechat-video"
+          }
+        }
+      }
+    },
+    {
+      "port": 8086,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "tcpSettings": {
+          "header": {
+            "type": "http",
+            "request": {
+              "version": "1.1",
+              "method": "GET",
+              "path": ["/"],
+              "headers": {
+                "Host": ["www.speedtest.net"],
+                "User-Agent": ["Mozilla/5.0 (Windows NT 10.0; Win64; x64)"],
+                "Accept-Encoding": ["gzip, deflate"],
+                "Connection": ["keep-alive"]
+              }
+            }
+          }
+        }
+      }
     }
   ],
   "outbounds": [
