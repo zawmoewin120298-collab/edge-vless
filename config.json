@@ -24,6 +24,25 @@
           }
         }
       }
+    },
+    {
+      "port": 8081,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "www.speedtest.net"
+        }
+      }
     }
   ],
   "outbounds": [
