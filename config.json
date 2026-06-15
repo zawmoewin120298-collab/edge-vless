@@ -16,9 +16,9 @@
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "grpc",
-        "grpcSettings": {
-          "serviceName": "grpc"
+        "network": "ws",
+        "wsSettings": {
+          "path": "/www.speedtest.net"
         }
       }
     }
