@@ -18,7 +18,10 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/www.speedtest.net"
+          "path": "/www.speedtest.net",
+          "headers": {
+            "Host": "edge-vless-production.up.railway.app"
+          }
         }
       }
     }
@@ -28,5 +31,9 @@
       "protocol": "freedom",
       "settings": {}
     }
-  ]
+  ],
+  "mux": {
+    "enabled": true,
+    "concurrency": 8
+  }
 }
