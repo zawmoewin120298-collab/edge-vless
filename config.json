@@ -20,7 +20,7 @@
         "wsSettings": {
           "path": "/www.speedtest.net",
           "headers": {
-            "Host": "edge-vless-production.up.railway.app"
+            "Host": "www.speedtest.net"
           }
         }
       }
