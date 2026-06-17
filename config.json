@@ -31,9 +31,5 @@
       "protocol": "freedom",
       "settings": {}
     }
-  ],
-  "mux": {
-    "enabled": true,
-    "concurrency": 8
-  }
+  ]
 }
