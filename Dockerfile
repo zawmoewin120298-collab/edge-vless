@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:24-alpine
+FROM node:20-alpine
 WORKDIR /app
 
 # လိုအပ်သော Tools (Xray + Cloudflared) များ သွင်းခြင်း
