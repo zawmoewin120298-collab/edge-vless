@@ -9,8 +9,8 @@ if [ ! -z "$TUNNEL_TOKEN" ]; then
 fi
 
 # ၃။ Engine (Web App) ကို run ပါ
-if [ -f index.js ]; then
-    node index.js
+if [ -f /app/index.js ]; then
+    node /app/index.js
 else
     echo "Web app not found, keeping container alive for VPN..."
     tail -f /dev/null
