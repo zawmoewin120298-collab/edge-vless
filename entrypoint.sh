@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# ၁။ Xray (VPN) ကို နောက်ခံ (Background) မှာ အရင်ဆုံး စတင်ပါ
+# ၁။ Xray (VPN) ကို နောက်ခံမှာ Run ပါ
 /usr/bin/v2ray run -config /etc/v2ray/config.json &
 
-# ၂။ Cloudflare Tunnel ကို နောက်ခံ (Background) မှာ ချိတ်ဆက်ပါ
+# ၂။ Cloudflare Tunnel ကို TCP (http2) Protocol သုံးပြီး အတင်း Run ခိုင်းခြင်း
 if [ ! -z "$TUNNEL_TOKEN" ]; then
-    /usr/local/bin/cloudflared tunnel --no-autoupdate run --token "$TUNNEL_TOKEN" &
+    /usr/local/bin/cloudflared tunnel --no-autoupdate run --protocol http2 --token "$TUNNEL_TOKEN" &
 fi
 
-# ၃။ Node.js (Web App) အပိုင်းကြောင့် လုံးဝ Crash မဖြစ်အောင် တိုက်ရိုက်ကာကွယ်ထားခြင်း
-echo "VPN Core and Cloudflare Tunnel started."
-
-# Container အမြဲတမ်း Active ဖြစ်ပြီး အသက်ရှင်နေအောင် ထိန်းထားပေးမယ့် အမိန့်
+# ၃။ Container ကို အမြဲတမ်း အသက်ရှင်နေအောင် ထိန်းထားပါ
+echo "VPN Core and Cloudflare Tunnel started with HTTP/2 protocol."
 tail -f /dev/null
