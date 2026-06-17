@@ -12,7 +12,7 @@ RUN apk add --no-cache wget unzip bash ca-certificates && \
     wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared && \
     chmod +x /usr/local/bin/cloudflared
 
-# ဖိုင်အားလုံးကို /app ထဲ ကူးထည့်ခြင်း
+# လက်ရှိ root ထဲက ဖိုင်အားလုံးကို ကူးထည့်ခြင်း
 COPY . .
 
 # လိုအပ်သော config ဖိုင်များကို သက်ဆိုင်ရာ နေရာများသို့ သေချာရွှေ့ပေးခြင်း
